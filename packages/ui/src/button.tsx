@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes } from "react";
 export interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   sizes?: "xs" | "sm" | "md" | "lg" | "xl" | "full" | "fit";
 }
-const Button = ({ children, sizes = "md", ...props }: BtnProps) => {
+const Button = ({ children, sizes = "md", className, ...props }: BtnProps) => {
   const SIZE: any = {
     xs: "text-xs px-2",
     sm: "text-sm px-3",
@@ -12,7 +12,14 @@ const Button = ({ children, sizes = "md", ...props }: BtnProps) => {
     full: "w-full text-base",
     fit: "w-fit text-base",
   };
-  return <button className={`${SIZE[sizes]} flex justify-center items-center`}>{children}</button>;
+  return (
+    <button
+      {...props}
+      className={`${className} ${SIZE[sizes]} py-2 flex justify-center items-center hover:opacity-70 duration-300 `}
+    >
+      {children}
+    </button>
+  );
 };
 
 export default Button;
