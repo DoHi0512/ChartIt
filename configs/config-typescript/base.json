@@ -10,7 +10,8 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "jsx": "react-jsx",
-    "moduleResolution": "node"
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext"
   },
   "exclude": ["node_modules"]
 }
