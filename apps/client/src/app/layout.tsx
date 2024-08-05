@@ -1,6 +1,5 @@
 import { Header } from "./components/common/header";
 import "./globals.css";
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -10,7 +9,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="">
         <Header />
-        <div className="pt-16 [&>div]:px-16">{children}</div>
+        <div className="pt-16">{children}</div>
       </body>
     </html>
   );
