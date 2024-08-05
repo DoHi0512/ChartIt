@@ -12,11 +12,9 @@ const Button = ({ children, sizes = "md", className, ...props }: BtnProps) => {
     full: "w-full text-base",
     fit: "w-fit text-base",
   };
+
   return (
-    <button
-      {...props}
-      className={`${className} ${SIZE[sizes]} py-2 flex justify-center items-center hover:opacity-70 duration-300 `}
-    >
+    <button {...props} className={`${className} ${SIZE[sizes]}`}>
       {children}
     </button>
   );
