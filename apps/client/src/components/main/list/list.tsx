@@ -15,7 +15,7 @@ const GraphList = ({ direction, scroll }: GraphListProps) => {
     <div
       className="flex w-[2000px] gap-8 duration-75"
       style={{
-        transform: `translateX(${scroll * 0.025 * (direction == "right" ? 1 : -1)}rem)`,
+        transform: `translateX(${scroll * 0.01 * (direction == "right" ? 1 : -1)}rem)`,
       }}
     >
       {List}
