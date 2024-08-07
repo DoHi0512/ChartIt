@@ -1,9 +1,12 @@
 import useUser from "@/hooks/useUser";
+import { useSignOut } from "@/service/login/mutations";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const Header = () => {
   const { user } = useUser();
+  const { signOutMutate } = useSignOut();
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);
@@ -15,7 +18,10 @@ export const Header = () => {
         Chart It
       </Link>
       {user && isClient ? (
-        <span className="cursor-pointer duration-300 hover:opacity-60">
+        <span
+          className="cursor-pointer duration-300 hover:opacity-60"
+          onClick={() => signOutMutate()}
+        >
           {user.email}
         </span>
       ) : (
