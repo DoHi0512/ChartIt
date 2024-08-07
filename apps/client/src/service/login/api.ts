@@ -9,3 +9,9 @@ export const signIn = async (provider: "google" | "github") => {
   });
   console.log(data, error);
 };
+
+export const signOut = async () => {
+  const { error } = await supabase.auth.signOut();
+  console.log(error);
+  return { error };
+};
