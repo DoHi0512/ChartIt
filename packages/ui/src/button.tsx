@@ -1,8 +1,9 @@
 import { ButtonHTMLAttributes } from "react";
 export interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   sizes?: "xs" | "sm" | "md" | "lg" | "xl" | "full" | "fit";
+  href?: string;
 }
-const Button = ({ children, sizes = "md", className, ...props }: BtnProps) => {
+const Button = ({ children, sizes = "md", className, href, ...props }: BtnProps) => {
   const SIZE: any = {
     xs: "text-xs px-2",
     sm: "text-sm px-3",
@@ -14,8 +15,10 @@ const Button = ({ children, sizes = "md", className, ...props }: BtnProps) => {
   };
 
   return (
-    <button {...props} className={`${className} justify-center flex gap-4 items-center ${SIZE[sizes]}`}>
-      {children}
+    <button {...props}>
+      <a href={href} className={`${className} justify-center flex gap-4 items-center ${SIZE[sizes]}`}>
+        {children}
+      </a>
     </button>
   );
 };
