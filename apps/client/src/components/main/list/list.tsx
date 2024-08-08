@@ -1,5 +1,5 @@
 "use client";
-import GRAPH_DATA from "@/constants/graph";
+import { GRAPH_DATA } from "@/constants/graph";
 import GraphItem from "./item";
 
 interface GraphListProps {
