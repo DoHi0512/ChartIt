@@ -1,7 +1,7 @@
-import { OptionProps } from "@/types/option";
+import { GraphOptionType } from "@/types/graph";
 import { ReactNode } from "react";
 
-interface DrawOptionProps extends OptionProps {
+interface DrawOptionType extends GraphOptionType {
   children: ReactNode;
 }
 const DrawOption = ({
@@ -10,7 +10,7 @@ const DrawOption = ({
   optional = true,
   desc,
   defaultValue,
-}: DrawOptionProps) => {
+}: DrawOptionType) => {
   return (
     <div className="flex flex-col gap-2 border-b border-gray-400 px-8 py-2">
       <div className="flex items-center gap-4">
