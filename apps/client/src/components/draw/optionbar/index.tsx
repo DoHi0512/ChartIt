@@ -1,24 +1,26 @@
-import { OptionProps } from "@/types/option";
+import { GraphCategoryType, GraphOptionType } from "@/types/graph";
 import DrawOption from "./option";
 
 interface OptionBarProps {
-  data: {
-    base: OptionProps[];
-    style: OptionProps[];
-  };
+  data?: GraphCategoryType[];
 }
 const OptionBar = ({ data }: OptionBarProps) => {
-  const { base, style } = data;
-  const BaseOptions = base.map((props, idx) => (
-    <DrawOption {...props} key={idx}>
-      옵션
-    </DrawOption>
-  ));
-  return (
-    <div className="w-full">
-      <div className="bg-primary px-8 py-4 font-semibold text-white">BASE</div>
-      {BaseOptions}
-    </div>
-  );
+  console.log(data);
+  const Options = data?.map(({ category, graph_options }) => {
+    const Items = graph_options?.map((props, idx) => (
+      <DrawOption {...props} key={idx}>
+        옵션
+      </DrawOption>
+    ));
+    return (
+      <>
+        <div className="bg-primary px-8 py-4 font-semibold text-white">
+          {category.toUpperCase()}
+        </div>
+        {Items}
+      </>
+    );
+  });
+  return <div className="w-full">{Options}</div>;
 };
 export default OptionBar;
