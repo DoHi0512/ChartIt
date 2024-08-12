@@ -14,7 +14,7 @@ const OptionBar = ({ data }: OptionBarProps) => {
     ));
     return (
       <>
-        <div className="bg-primary px-8 py-4 font-semibold text-white">
+        <div className="bg-primary px-8 py-3 font-semibold text-white">
           {category.toUpperCase()}
         </div>
         {Items}
