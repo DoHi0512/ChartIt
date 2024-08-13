@@ -6,6 +6,7 @@ import { useGraphDetail } from "@/service/graph/queries";
 const DrawPage = ({ params }: { params: { type: "bar" } }) => {
   const { type } = params;
   const { data, isLoading } = useGraphDetail(type);
+  console.log(data);
   return (
     <div className="flex w-full">
       <div className="w-[40rem] flex-shrink-0">
@@ -13,7 +14,7 @@ const DrawPage = ({ params }: { params: { type: "bar" } }) => {
           {type.toUpperCase()}
         </div>
         <div className="p-8">{data?.description}</div>
-        <OptionBar data={data?.graph_category} />
+        <OptionBar data={data?.graph_options} />
       </div>
       <GraphSection />
     </div>
