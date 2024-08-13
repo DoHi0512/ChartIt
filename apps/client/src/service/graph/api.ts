@@ -15,13 +15,9 @@ export const getGraphDetail = async (type: string) => {
     .select(
       `
         description,
-        graph_category(
-            category,
-            graph_options(
-                name,
-                desc,
-                optional
-            )
+        graph_options (
+            *,
+            category:category_id (category)
         )
     `,
     )
