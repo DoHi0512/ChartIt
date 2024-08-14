@@ -1,5 +1,7 @@
 import { GraphOptionType } from "@/types/graph";
 import DrawOption from "./option";
+import Choise from "../settings/choise";
+import Toggle from "../settings/toggle";
 
 interface OptionBarProps {
   data?: GraphOptionType[];
@@ -10,7 +12,11 @@ const OptionBar = ({ data }: OptionBarProps) => {
       ?.filter((item) => item.category.category === category)
       .map((props, idx) => (
         <DrawOption key={idx} {...props}>
-          HI
+          {props.type === "choise" ? (
+            <Choise {...props} />
+          ) : (
+            <Toggle {...props} />
+          )}
         </DrawOption>
       ));
     return (
