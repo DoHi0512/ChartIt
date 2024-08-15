@@ -17,11 +17,13 @@ export const getGraphDetail = async (type: string) => {
         description,
         graph_options (
             *,
+            id,
             category:category_id (category)
         )
     `,
     )
-    .eq("name", type);
+    .eq("name", type)
+    .order("id", { foreignTable: "graph_options" });
 
   return data;
 };
