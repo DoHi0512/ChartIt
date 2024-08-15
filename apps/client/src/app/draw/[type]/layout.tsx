@@ -1,7 +1,4 @@
-"use client";
-
 import SideBar from "@/components/draw/sidebar";
-
 export default function DrawLayout({
   children,
 }: Readonly<{
