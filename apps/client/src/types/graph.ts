@@ -11,7 +11,7 @@ export interface GraphOptionType {
   category: { category: string };
   desc: string;
   type: string;
-  scale?: { minValue: number; maxValue: number };
+  scale?: { min: number; max: number };
   settings?: string[];
 }
 
