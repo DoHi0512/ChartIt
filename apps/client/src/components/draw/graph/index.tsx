@@ -1,12 +1,10 @@
-import { useGraphStore } from "@/store/graph";
 import { ResponsiveBar } from "@nivo/bar";
 
-const GraphSection = () => {
-  const [graph, setGraph] = useGraphStore();
+const GraphSection = ({ option }: { option: any }) => {
   return (
     <div className="h-full flex-1">
       <ResponsiveBar
-        {...graph}
+        {...option}
         data={[
           { id: 1, fanta: 1100 },
           { id: "500ml", cola: 2200, cidar: 2000, fanta: 2100 },

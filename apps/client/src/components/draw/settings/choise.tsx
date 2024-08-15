@@ -1,20 +1,13 @@
-import { useGraphStore } from "@/store/graph";
-import { GraphOptionType } from "@/types/graph";
-import { useEffect, useState } from "react";
+import { GraphSettingType } from "@/types/graph";
 
-const Choise = ({ settings, defaultValue, name }: GraphOptionType) => {
-  const [graph, setGraph] = useGraphStore();
-  const [selected, setSelected] = useState(defaultValue);
-  useEffect(() => {
-    setGraph({ ...graph, [name]: selected });
-  }, [selected]);
-  const SETTING = settings?.map((value, idx) => (
+const Choise = ({ settings, setValue, value }: GraphSettingType) => {
+  const SETTING = settings?.map((setting, idx) => (
     <div
-      className={`${value === selected ? "bg-white" : "bg-gray-100 shadow-inner"} flex flex-1 items-center justify-center border-r border-gray-300 py-1`}
-      onClick={() => setSelected(value)}
+      className={`${value === setting ? "bg-white" : "bg-gray-100 shadow-inner"} flex flex-1 items-center justify-center border-r border-gray-300 py-1`}
+      onClick={() => setValue(setting)}
       key={idx}
     >
-      {value}
+      {setting}
     </div>
   ));
   return (

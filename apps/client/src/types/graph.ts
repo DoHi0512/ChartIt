@@ -14,3 +14,8 @@ export interface GraphOptionType {
   scale?: { minValue: number; maxValue: number };
   settings?: string[];
 }
+
+export interface GraphSettingType extends GraphOptionType {
+  setValue: (v: any) => void;
+  value: any;
+}
