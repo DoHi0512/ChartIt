@@ -1,6 +1,7 @@
 import { ResponsiveBar } from "@nivo/bar";
 
 const GraphSection = ({ option }: { option: any }) => {
+  console.log(option);
   return (
     <div className="h-full flex-1">
       <ResponsiveBar
@@ -12,7 +13,6 @@ const GraphSection = ({ option }: { option: any }) => {
         ]}
         keys={["cola", "cidar", "fanta"]}
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-        padding={0.3}
         colors={{ scheme: "nivo" }}
         colorBy="id" // 색상을 keys 요소들에 각각 적용
       />
