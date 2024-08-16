@@ -1,7 +1,7 @@
 import { GraphSettingType } from "@/types/graph";
 
 const Slide = ({ scale, setValue, value }: GraphSettingType) => {
-  const { min, max } = scale || { min: 0, max: 1 };
+  const { min, max, step } = scale || {};
   console.log(min, max);
   return (
     <div className="flex items-center gap-4">
@@ -10,7 +10,7 @@ const Slide = ({ scale, setValue, value }: GraphSettingType) => {
         min={min}
         max={max}
         value={value}
-        step={0.05}
+        step={step}
         onChange={(e) => setValue(Number(e.target.value))}
       />
       <span className="font-light">{value}</span>
