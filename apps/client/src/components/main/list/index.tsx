@@ -1,21 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
 import GraphList from "./list";
 import { BsArrow90DegDown } from "react-icons/bs";
+import useScroll from "@/hooks/useScroll";
 const MainList = () => {
-  const [scroll, setScroll] = useState(0);
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const onScroll = () => {
-        const { scrollY } = window;
-        setScroll(scrollY);
-      };
-      window.addEventListener("scroll", onScroll);
-      () => window.removeEventListener("scroll", onScroll);
-    }
-  }, []);
+  const { scroll } = useScroll();
   return (
-    <div className="flex h-[100rem] flex-col items-center gap-8 px-16 py-12">
+    <div className="mb-72 flex flex-col items-center gap-8 py-12">
       <span className="flex items-center justify-between gap-4 text-xl font-medium [&>svg]:h-6 [&>svg]:w-6">
         <BsArrow90DegDown />
         그릴 수 있는 그래프
