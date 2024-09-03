@@ -7,8 +7,6 @@ export interface GraphType {
 export interface GraphOptionType {
   name: string;
   optional?: boolean;
-  defaultValue?: string;
-  category: { category: string };
   desc: string;
   type: string;
   scale?: { min: number; max: number; step: number };
