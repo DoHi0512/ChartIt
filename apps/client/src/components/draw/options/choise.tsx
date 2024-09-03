@@ -1,6 +1,7 @@
 import { GraphSettingType } from "@/types/graph";
 
 const Choise = ({ settings, setValue, value }: GraphSettingType) => {
+  console.log("v", value);
   const SETTING = settings?.map((setting, idx) => (
     <div
       className={`${value === setting ? "bg-white" : "bg-gray-100 shadow-inner"} flex flex-1 items-center justify-center border-r border-gray-300 py-1`}

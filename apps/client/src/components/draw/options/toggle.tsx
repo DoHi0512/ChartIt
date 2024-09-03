@@ -1,7 +1,6 @@
 import { GraphSettingType } from "@/types/graph";
 
 const Toggle = ({ value, setValue }: GraphSettingType) => {
-  console.log("value", value || value == "true");
   return (
     <div className="flex items-center gap-4">
       <div
