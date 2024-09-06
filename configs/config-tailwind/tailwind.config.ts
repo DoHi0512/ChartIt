@@ -6,6 +6,7 @@ const config: Omit<Config, "content"> = {
       colors: {
         primary: "#20c997",
         github: "#21262d",
+        "primary-hover": "#1dbd9c",
       },
     },
   },
