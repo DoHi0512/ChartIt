@@ -21,7 +21,7 @@ const DataForm = () => {
 
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
-    if (files) {
+    if (!!files?.length) {
       const jsonData = (await readExcel(files[0])) as string[][] | number[][];
       const convertObj = jsonData.map((row) =>
         row.map((col) => ({ value: col })),
