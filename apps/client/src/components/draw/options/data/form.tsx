@@ -1,8 +1,9 @@
 import readExcel from "@/utils/readExcel";
 import { Button } from "@chartit/ui";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Spreadsheet from "react-spreadsheet";
 import { MdOutlineFileUpload } from "react-icons/md";
+import GraphSection from "../../graph";
 const DataForm = () => {
   const [data, setData] = useState<any>([
     ["", "", ""],
@@ -32,7 +33,10 @@ const DataForm = () => {
 
   return (
     <div className="flex h-[45rem] w-[70rem] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-lg">
-      <div className="flex h-full w-[15rem] flex-shrink-0 flex-col gap-2 border-r border-gray-300 p-4">
+      <div className="flex h-full w-[20rem] flex-shrink-0 flex-col gap-2 border-r border-gray-300 p-4">
+        <div className="w-full flex-1">
+          <GraphSection />
+        </div>
         <Button
           className="rounded-md border border-gray-300 py-1"
           onClick={addColumn}
@@ -60,6 +64,9 @@ const DataForm = () => {
           <MdOutlineFileUpload size="1.5rem" />
           파일 업로드
         </label>
+        <span className="text-center text-gray-500">
+          지원되는 파일 형식 (.xlsx, .csv)
+        </span>
       </div>
       <Spreadsheet onChange={setData} data={data} />
     </div>
