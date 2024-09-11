@@ -23,6 +23,8 @@ export const OPTIONS_INIT: IOPTIONS_INIT = {
     reverse: false,
     padding: 0.1,
     innerPadding: 0,
+    minValue: "auto",
+    maxValue: "auto",
   },
 };
 
@@ -61,6 +63,18 @@ export const GRAPH_OPTIONS: IGRAPH_OPTIONS = {
           name: "innerPadding",
           type: "slide",
           scale: { max: 10, min: 0, step: 1 },
+        },
+        {
+          desc: "Minimum value.",
+          name: "minValue",
+          type: "toggle",
+          scale: { max: 0, min: -1000, step: 1 },
+        },
+        {
+          desc: "Maximum value.",
+          name: "maxValue",
+          type: "toggle",
+          scale: { max: 1000, min: 0, step: 1 },
         },
       ],
       style: [],
