@@ -1,17 +1,37 @@
 import { GraphSettingType } from "@/types/graph";
+import Slide from "./slide";
+import { useState } from "react";
 
-const Toggle = ({ value, setValue }: GraphSettingType) => {
+const Toggle = (props: GraphSettingType) => {
+  const [tglState, setTglState] = useState(true);
+  const { value, scale, setValue } = props;
+  const handleOnClick = () => {
+    if (scale) {
+      setTglState(!tglState);
+      setValue("auto");
+    } else setValue(!value);
+  };
+  const currentState = scale ? tglState : value;
   return (
-    <div className="flex items-center gap-4">
+    <div className="flex flex-wrap items-center gap-4">
       <div
-        onClick={() => setValue(!value)}
-        className={`${value || value == "true" ? "bg-primary" : "bg-red-400"} relative flex h-5 w-10 cursor-pointer items-center rounded-full`}
+        onClick={handleOnClick}
+        className={`${currentState ? "bg-primary" : "bg-red-400"} relative flex h-5 w-10 cursor-pointer items-center rounded-full`}
       >
         <div
-          className={`${value || value == "true" ? "right-1" : "right-6"} absolute h-3 w-3 rounded-full bg-white duration-150`}
+          className={`${currentState ? "right-1" : "right-6"} absolute h-3 w-3 rounded-full bg-white duration-150`}
         />
       </div>
-      <span className="font-light">{value?.toString()}</span>
+      <span
+        className={`font-light ${scale && !tglState ? "text-gray-400" : "text-inherit"}`}
+      >
+        {scale ? "auto" : value?.toString()}
+      </span>
+      {scale && !tglState ? (
+        <div className="w-full">
+          <Slide {...props} />
+        </div>
+      ) : null}
     </div>
   );
 };
