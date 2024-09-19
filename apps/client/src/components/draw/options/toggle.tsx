@@ -13,7 +13,7 @@ const Toggle = (props: GraphSettingType) => {
   };
   const currentState = scale ? tglState : value;
   return (
-    <div className="flex flex-wrap items-center gap-4">
+    <div className="flex flex-wrap items-center gap-x-4">
       <div
         onClick={handleOnClick}
         className={`${currentState ? "bg-primary" : "bg-red-400"} relative flex h-5 w-10 cursor-pointer items-center rounded-full`}
