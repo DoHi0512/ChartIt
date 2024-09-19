@@ -8,9 +8,11 @@ const readExcel = (file: File) => {
       try {
         const data = new Uint8Array(e.target.result as ArrayBuffer);
         const workbook = XLSX.read(data, { type: "array" });
-        const firstWorksheet = workbook.Sheets[workbook.SheetNames[0]];
-        const jsonData = XLSX.utils.sheet_to_json(firstWorksheet, {
+        const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+        const jsonData = XLSX.utils.sheet_to_json(worksheet, {
+          raw: false,
           header: 1,
+          blankrows: false,
         });
         resolve(jsonData);
       } catch (error) {
