@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
-export interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface BtnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   sizes?: "xs" | "sm" | "md" | "lg" | "xl" | "full" | "fit";
   href?: string;
 }
