@@ -8,7 +8,7 @@ import {
 const sheetState = atom<any>({
   key: "sheet",
   default: [
-    ["", "", ""],
+    [{ value: "라벨" }, { value: "데이터1" }, { value: "데이터2" }],
     ["", "", ""],
   ],
 });
