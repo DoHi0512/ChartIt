@@ -11,11 +11,13 @@ import { toast } from "react-toastify";
 const DataForm = () => {
   const [option, setOption] = useOptionState();
   const [data, setData] = useSheetState();
+
   const addRow = () => {
     const emptyArray = new Array(data[0].length).fill("");
     const newData = [...data, emptyArray];
     setData(newData);
   };
+
   const addColumn = () => {
     const newData = data.map((row: any) => [...row, { value: "" }]);
     setData(newData);
@@ -37,6 +39,7 @@ const DataForm = () => {
       indexBy: header?.slice(0, 1),
     };
   };
+
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
     if (!!files?.length) {
@@ -61,7 +64,6 @@ const DataForm = () => {
     const hasUndefined = data.some((row: (string | number)[]) =>
       row.some((col) => !!!col),
     );
-    console.log(hasUndefined, data);
     if (hasUndefined) {
       toast.error("비어있는 값이 있습니다!");
       return;
@@ -107,7 +109,7 @@ const DataForm = () => {
         />
         <label
           htmlFor="excel"
-          className="hover:bg-primary-hover flex cursor-pointer items-center justify-center gap-2 rounded-md bg-primary py-2 text-white duration-200"
+          className="flex cursor-pointer items-center justify-center gap-2 rounded-md bg-primary py-2 text-white duration-200 hover:bg-primary-hover"
         >
           <MdOutlineFileUpload size="1.5rem" />
           파일 업로드
