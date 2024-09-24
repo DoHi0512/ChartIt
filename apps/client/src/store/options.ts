@@ -4,9 +4,9 @@ import {
   useRecoilValue,
   useSetRecoilState,
 } from "recoil";
-const GraphOptionsState = atom({
+const GraphOptionsState = atom<any>({
   key: "graph-options",
-  default: {},
+  default: { data: [] },
 });
 
 export const useOptionState = () => useRecoilState(GraphOptionsState);
