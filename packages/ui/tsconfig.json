@@ -1,5 +1,0 @@
-{
-  "extends": "@chartit/config-typescript/base.json",
-  "include": [".", "../../apps/client/tailwind.config.ts"],
-  "exclude": ["dist", "build", "node_modules"]
-}

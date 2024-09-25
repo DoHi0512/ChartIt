@@ -1,8 +1,0 @@
-{
-  "name": "@chartit/ui",
-  "main": "index.ts",
-  "version": "0.0.0",
-  "scripts": {
-    "build": "tsc"
-  }
-}
