@@ -1,0 +1,49 @@
+{
+  "name": "client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chartit/config-tailwind": "workspace:^",
+    "@chartit/ui": "workspace:^",
+    "@nivo/bar": "^0.87.0",
+    "@nivo/core": "^0.87.0",
+    "@supabase/auth-helpers-nextjs": "^0.10.0",
+    "@supabase/ssr": "^0.4.0",
+    "@supabase/supabase-js": "^2.45.0",
+    "@tanstack/react-query": "^5.51.21",
+    "@types/chart.js": "^2.9.41",
+    "@types/lodash": "^4.17.7",
+    "@types/react-modal": "^3.16.3",
+    "@types/react-toastify": "^4.1.0",
+    "@types/recoil": "^0.0.9",
+    "chart.js": "^4.4.3",
+    "html-to-image": "^1.11.11",
+    "lodash": "^4.17.21",
+    "next": "14.2.3",
+    "nivo": "^0.31.0",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.2.1",
+    "react-modal": "^3.16.1",
+    "react-spreadsheet": "^0.9.5",
+    "react-toastify": "^10.0.5",
+    "recoil": "^0.7.7",
+    "recoil-persist": "^5.1.0",
+    "scheduler": "^0.23.2",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.3",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@chartit/ui",
+  "main": "index.ts",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@chartit/config-tailwind": "workspace:^",
+    "react-icons": "^5.2.1"
+  }
+}
