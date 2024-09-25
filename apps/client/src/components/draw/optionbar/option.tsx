@@ -9,7 +9,6 @@ const DrawOption = ({
   name,
   optional = true,
   desc,
-  defaultValue,
 }: DrawOptionType) => {
   return (
     <div className="flex flex-col gap-2 border-b border-gray-400 px-8 py-2">
@@ -18,12 +17,9 @@ const DrawOption = ({
         <span className="font-light text-gray-400">
           {optional ? "optional" : "required"}
         </span>
-        <span className="font-light">
-          {!!defaultValue ? "default : " + defaultValue : ""}
-        </span>
       </div>
       {children}
-      <span className="text-sm font-light text-gray-400">{desc}</span>
+      <span className="text-sm text-gray-400">{desc}</span>
     </div>
   );
 };
