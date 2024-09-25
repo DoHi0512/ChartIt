@@ -1,5 +1,5 @@
 import { GraphSettingType } from "@/types/graph";
-import Slide from "./slide";
+import Slide from "../slide";
 import { useState } from "react";
 
 const Toggle = (props: GraphSettingType) => {
