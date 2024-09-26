@@ -1,29 +1,12 @@
+import { GraphType } from "@/types/graph";
 import supabase from "@/utils/supabase/client";
 
-export const getAllGraph = async () => {
-  const { data } = await supabase.from("graph_types").select(`
-    id,
-    name,
-    description
-    `);
-  return data;
+export const saveGraph = async (data: GraphType) => {
+  await supabase.from("graph").insert(data);
 };
 
-export const getGraphDetail = async (type: string) => {
-  const { data } = await supabase
-    .from("graph_types")
-    .select(
-      `
-        description,
-        graph_options (
-            *,
-            id,
-            category:category_id (category)
-        )
-    `,
-    )
-    .eq("name", type)
-    .order("id", { foreignTable: "graph_options" });
+export const getGraphList = async (id: number) => {
+  const data = await supabase.from("graph").select("*");
 
-  return data;
+  return data.data;
 };
