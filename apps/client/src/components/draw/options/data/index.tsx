@@ -1,15 +1,14 @@
-import { GraphSettingType } from "@/types/graph";
 import { Button } from "@chartit/ui";
 import { useState } from "react";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import Modal from "react-modal";
 import DataForm from "./form";
-const Data = ({ setValue }: GraphSettingType) => {
+const Data = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="w-full">
       <Button
-        className="hover:bg-primary-hover w-full gap-2 bg-primary p-2 text-white duration-200"
+        className="w-full gap-2 bg-primary p-2 text-white duration-200 hover:bg-primary-hover"
         onClick={() => setIsOpen(true)}
       >
         <IoCloudUploadOutline size={"1.5rem"} />

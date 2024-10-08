@@ -1,7 +1,9 @@
 export interface GraphType {
-  id: number;
-  description: string;
-  name: string;
+  owner: number;
+  type: string;
+  options: {
+    [name: string]: GraphOptionType[];
+  };
 }
 
 export interface GraphOptionType {

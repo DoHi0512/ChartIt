@@ -19,11 +19,10 @@ export const useSaveMutation = () => {
   return { saveMutate: mutate, ...restMutate };
 };
 
-export const useGraphList = (id: number) => {
+export const useGraphList = (id: string) => {
   const { data, ...restQuery } = useQuery({
     queryKey: ["graphList", id],
     queryFn: () => getGraphList(id),
   });
-  console.log("data", data);
   return { data, ...restQuery };
 };

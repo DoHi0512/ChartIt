@@ -8,6 +8,9 @@ const config: Omit<Config, "content"> = {
         github: "#21262d",
         "primary-hover": "#1dbd9c",
       },
+      screens: {
+        im: "0px",
+      },
     },
   },
   plugins: [],

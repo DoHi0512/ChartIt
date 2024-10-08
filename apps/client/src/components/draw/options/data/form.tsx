@@ -7,11 +7,13 @@ import { useOptionState } from "@/store/options";
 import readExcel from "@/utils/excel/readExcel";
 import { useSheetState } from "@/store/sheet";
 import { toast } from "react-toastify";
+import { useParams } from "next/navigation";
+import { transformToBar, transformToPie } from "@/utils/excel/transformData";
 
 const DataForm = () => {
   const [option, setOption] = useOptionState();
   const [data, setData] = useSheetState();
-
+  const { type } = useParams();
   const addRow = () => {
     const emptyArray = new Array(data[0].length).fill("");
     const newData = [...data, emptyArray];
@@ -21,23 +23,6 @@ const DataForm = () => {
   const addColumn = () => {
     const newData = data.map((row: any) => [...row, { value: "" }]);
     setData(newData);
-  };
-
-  const transformData = (data: any) => {
-    const [header, ...rows] = data;
-    const value = rows.map((row: any) => {
-      const result: Record<string, number | string> = {};
-      header.forEach((key: any, idx: number) => {
-        const value = row[idx];
-        result[key] = value;
-      });
-      return result;
-    });
-    return {
-      keys: header?.slice(1),
-      value: value,
-      indexBy: header?.slice(0, 1),
-    };
   };
 
   const handleUpload = async (e: ChangeEvent<HTMLInputElement>) => {
@@ -56,8 +41,13 @@ const DataForm = () => {
     const removeEmpty = data.map((row) => {
       return Array.from(row, (value, index) => (index in row ? value : 0));
     });
-    const { keys, value, indexBy } = transformData(removeEmpty);
-    setOption({ ...option, keys: keys, data: value, indexBy: indexBy });
+    if (type == "bar") {
+      const { keys, value, indexBy } = transformToBar(removeEmpty);
+      setOption({ ...option, keys: keys, data: value, indexBy: indexBy });
+    } else if (type == "pie") {
+      const data = transformToPie(removeEmpty);
+      setOption({ ...option, data: data });
+    }
   };
 
   const saveChange = () => {
@@ -79,7 +69,7 @@ const DataForm = () => {
     <div className="flex h-[45rem] w-[70rem] overflow-hidden rounded-lg border border-gray-300 bg-white shadow-lg">
       <div className="flex h-full w-[20rem] flex-shrink-0 flex-col gap-2 border-r border-gray-300 p-4">
         <div className="w-full flex-1">
-          <GraphSection />
+          <GraphSection type={type} />
         </div>
         <Button
           className="rounded-md border border-gray-300 py-1"

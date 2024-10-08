@@ -32,10 +32,19 @@ export const OPTIONS_INIT: IOPTIONS_INIT = {
     enableLabel: true,
     labelSkipWidth: 12,
     labelSkipHeight: 12,
-    // labelPosition: "middle",
-    // labelOffset: 0,
     enableTotals: false,
     totalOffset: 10,
+  },
+  pie: {
+    startAngle: 0,
+    endAngle: 360,
+    fit: true,
+    innerRadius: 0,
+    padAngle: 0,
+    cornerRadius: 0,
+    sortByValue: false,
+    colors: "nivo",
+    borderWidth: 0,
   },
 };
 
@@ -130,18 +139,6 @@ export const GRAPH_OPTIONS: IGRAPH_OPTIONS = {
           type: "slide",
           scale: { min: 0, max: 36, step: 1 },
         },
-        // {
-        //   desc: "라벨 위치",
-        //   name: "labelPosition",
-        //   type: "choise",
-        //   settings: ["start", "middle", "end"],
-        // },
-        // {
-        //   desc: "라벨 오프셋",
-        //   name: "labelOffset",
-        //   type: "slide",
-        //   scale: { min: -16, max: 16, step: 1 },
-        // },
         {
           desc: "라벨값 합계 켜기/끄기",
           name: "enableTotals",
@@ -152,6 +149,69 @@ export const GRAPH_OPTIONS: IGRAPH_OPTIONS = {
           name: "totalsOffset",
           type: "slide",
           scale: { min: 0, max: 40, step: 1 },
+        },
+      ],
+    },
+  },
+  pie: {
+    description:
+      "데이터 배열에서 각 항목은 id와 value 속성을 가져야 하며, 파이 차트를 생성할 수 있어요. 여기서 중요한 점은 margin 객체가 방사형 레이블을 고려하지 않으므로, 이를 위해 충분한 공간을 남기도록 조정해야 해요.",
+    options: {
+      base: [
+        { desc: "차트 데이터", name: "data", type: "data", optional: false },
+        {
+          desc: "시작 각도",
+          name: "startAngle",
+          type: "slide",
+          scale: { min: -180, max: 360, step: 1 },
+        },
+        {
+          desc: "종료 각도",
+          name: "endAngle",
+          type: "slide",
+          scale: { min: -360, max: 360, step: 1 },
+        },
+        {
+          desc: "'true'로 설정하면, 부분 파이 차트를 사용할 때 파이가 더 많은 공간을 차지하도록 최적화.",
+          name: "fit",
+          type: "toggle",
+        },
+        {
+          desc: "값이 0보다 크면 도넛 차트로 표시돼요. 이 값은 원래 반지름에서 비율로 나타내지며, 0에서 1 사이여야 해요.",
+          name: "innerRadius",
+          type: "slide",
+          scale: { min: -0, max: 0.95, step: 0.05 },
+        },
+        {
+          desc: "각 파이 사이의 간격",
+          name: "padAngle",
+          type: "slide",
+          scale: { min: 0, max: 45, step: 1 },
+        },
+        {
+          desc: "각 파이의 굴곡",
+          name: "cornerRadius",
+          type: "slide",
+          scale: { min: 0, max: 45, step: 1 },
+        },
+        {
+          desc: "정렬 켜기/끄기",
+          name: "sortByValue",
+          type: "toggle",
+        },
+      ],
+      style: [
+        {
+          desc: "차트 색상",
+          name: "colors",
+          type: "select",
+          settings: ["nivo", "category10", "accent"],
+        },
+        {
+          desc: "테두리 두께를 설정 (px)",
+          name: "borderWidth",
+          type: "slide",
+          scale: { min: 0, max: 20, step: 1 },
         },
       ],
     },

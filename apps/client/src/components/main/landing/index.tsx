@@ -12,7 +12,7 @@ const Landing = () => {
         36가지의 차트를 손쉽게 그리고 수정하세요.
       </span>
       <Button
-        href={user ? "/" : "login"}
+        href={!!user ? "/draw/bar" : "/login"}
         sizes="xl"
         className="rounded-md bg-primary py-3 font-medium text-white hover:opacity-90"
       >
