@@ -6,7 +6,7 @@ import { useGraphList } from "@/service/graph/queries";
 const ListPage = () => {
   const { user } = useUser();
   const { data } = useGraphList(user?.id);
-  const List = data?.map((item, idx) => <ListItem {...item} />);
+  const List = data?.map((item, idx) => <ListItem key={idx} {...item} />);
   return (
     <div className="flex flex-col px-16 py-8">
       <span className="text-3xl font-bold">저장된 그래프 옵션</span>

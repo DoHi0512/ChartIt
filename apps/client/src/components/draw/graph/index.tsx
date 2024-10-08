@@ -52,4 +52,6 @@ const GraphSection = forwardRef<HTMLDivElement, IGraphSectionProps>(
   },
 );
 
+GraphSection.displayName = "graph";
+
 export default GraphSection;
