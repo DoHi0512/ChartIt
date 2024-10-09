@@ -20,7 +20,7 @@ export const useSignOut = () => {
 export const useSignIn = () => {
   const queryClient = useQueryClient();
   const { mutate: signInMutate, ...restMutation } = useMutation({
-    mutationFn: (provider: "google" | "github") => signIn(provider),
+    mutationFn: signIn,
     onError: () => {
       toast.error("로그인 실패");
     },
