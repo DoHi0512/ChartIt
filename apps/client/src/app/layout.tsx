@@ -18,7 +18,7 @@ export default function RootLayout({
           <body className="">
             <Header />
             <div className="h-full pt-16">{children}</div>
-            <ToastContainer />
+            <ToastContainer position="bottom-right" />
           </body>
         </html>
       </RecoilRoot>

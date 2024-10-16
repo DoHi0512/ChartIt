@@ -9,7 +9,7 @@ const Landing = () => {
         쉽고 빠르게 원하는 차트를 그려보세요
       </span>
       <span className="text-lg text-gray-400">
-        36가지의 차트를 손쉽게 그리고 수정하세요.
+        다양한 차트를 그리고 이미지로 바꿔보세요
       </span>
       <Button
         href={!!user ? "/draw/bar" : "/login"}

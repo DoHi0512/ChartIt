@@ -18,16 +18,8 @@ export const useSignOut = () => {
 };
 
 export const useSignIn = () => {
-  const queryClient = useQueryClient();
   const { mutate: signInMutate, ...restMutation } = useMutation({
     mutationFn: signIn,
-    onError: () => {
-      toast.error("로그인 실패");
-    },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["user"] });
-      toast.success("로그인 성공");
-    },
   });
   return { signInMutate, ...restMutation };
 };
