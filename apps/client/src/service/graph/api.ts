@@ -6,7 +6,7 @@ export const saveGraph = async (data: GraphType) => {
 };
 
 export const getGraphList = async (id: string) => {
-  const data = await supabase.from("graph").select("*").eq("owner", id);
+  const { data } = await supabase.from("graph").select("*").eq("owner", id);
 
-  return data.data;
+  return data;
 };
