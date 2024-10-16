@@ -4,7 +4,7 @@ export const signIn = async (provider: "google" | "github") => {
   await supabase.auth.signInWithOAuth({
     provider: provider,
     options: {
-      redirectTo: "https://chart-it.netlify.app/list",
+      redirectTo: "https://chart-it.vercel.app/list",
     },
   });
 };
