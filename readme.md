@@ -36,7 +36,7 @@
 - Supabase Authentication을 사용한 github, google 로그인
 - supabase table editor를 사용한 postgres 데이터베이스 사용
 
-## Monorepo
+### Monorepo
 
 - pnpm 을 사용한 모노레포 환경 구축
 - Storybook을 사용한 컴포넌트 관리
